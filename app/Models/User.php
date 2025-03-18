@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
+    public $fillable = [
         'name',
         'email',
         'password',
@@ -28,7 +28,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $hidden = [
+    public $hidden = [
         'password',
         'remember_token',
     ];
@@ -38,7 +38,7 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    public function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',

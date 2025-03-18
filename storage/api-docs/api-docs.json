@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "NYT Best Sellers API",
+        "description": "Endpoint that retrieves data from the NYT Best Sellers API based on certain query parameters.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/nyt/best-sellers": {
+            "get": {
+                "tags": [
+                    "Best Sellers"
+                ],
+                "summary": "Fetch NYT Best Sellers list",
+                "operationId": "1643225a310fd7ea2aa3817ccc0f764c",
+                "parameters": [
+                    {
+                        "name": "author",
+                        "in": "query",
+                        "description": "Author of the book",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isbn",
+                        "in": "query",
+                        "description": "ISBN of the book",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Title of the book",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Pagination offset (must be a multiple of 20)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "multipleOf": 20,
+                            "example": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of NYT Best Sellers",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "FilterData": {
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "example": "Diana Gabaldon",
+                        "nullable": true
+                    },
+                    "isbn": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "0399178570",
+                            "9780399178573"
+                        ],
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "The Great Gatsby",
+                        "nullable": true
+                    },
+                    "offset": {
+                        "type": "integer",
+                        "example": 0,
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Best Sellers",
+            "description": "Best Sellers"
+        }
+    ]
+}

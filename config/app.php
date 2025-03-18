@@ -123,4 +123,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'features' => [
+        'test_external' => env('FEATURE_TEST_EXTERNAL', false),
+    ],
+
 ];

@@ -1,5 +1,5 @@
 <?php
+use App\Http\Controllers\NewYorkTimesController;
+use Illuminate\Support\Facades\Route;
 
-Route::prefix('api')->group(function () {
-    Route::get('nyt/best-sellers',[NewYorkTimesController::class, 'history']);
-});
+Route::get('/nyt/best-sellers',[NewYorkTimesController::class, 'getBestSellers']);
